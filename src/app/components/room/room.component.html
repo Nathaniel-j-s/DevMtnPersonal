@@ -1,3 +1,19 @@
-<p>
-  room works!
-</p>
+<div *ngIf="room">
+  <a [routerLink]="['/rooms']">Go Back</a>
+  <h2 class="page-header">{{room.title}} <small>{{room.city}}</small></h2>
+  <div class="row">
+    <div class="col-md-4">
+      <!-- image -->
+    </div>
+    <div class="col-md-8">
+      <ul class="list-group">
+        <li class="list-group-item">Owner: {{room.owner}}</li>
+        <li class="list-group-item">Bedrooms: {{room.bedrooms}}</li>
+        <li class="list-group-item">Type: {{room.type}}</li>
+        <li class="list-group-item">Price: {{room.price}}</li>
+      </ul>
+    </div>
+    <a class="btn btn-default" href="#">Edit</a>
+    <a class="btn btn-danger" href="#">Delete</a>
+  </div>
+</div>

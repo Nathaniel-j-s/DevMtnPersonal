@@ -12,9 +12,10 @@
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a [routerLink]="['/']">Home</a></li>
-        <li><a [routerLink]="['/rooms']">Map</a></li>
-        <li><a [routerLink]="['/calendar']">Calendar</a></li>
-        <li><a href="#">Login</a></li>
+        <li *ngIf="(af.auth | async)"><a [routerLink]="['/rooms']">Map</a></li>
+        <li *ngIf="(af.auth | async)"><a [routerLink]="['/calendar']">Calendar</a></li>
+        <li *ngIf="!(af.auth | async)"><a (click)="login()">Login</a></li>
+        <li *ngIf="(af.auth | async)"><a (click)="logout()">Logout</a></li>
       </ul>
     </div>
   </div>
