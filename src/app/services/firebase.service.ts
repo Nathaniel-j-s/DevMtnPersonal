@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class FirebaseService {
   rooms: FirebaseListObservable<any[]>;
   room: FirebaseObjectObservable<any[]>;
-  constructor(private af: AngularFire) { }
+  folder: any;
+
+  constructor(private af: AngularFire) {
+    this.folder = 'roomImages';
+   }
 
   getRooms() {
     this.rooms = this.af.database.list('/rooms') as FirebaseListObservable<Room[]>
@@ -17,6 +22,21 @@ export class FirebaseService {
     return this.room;
   }
 
+  addRoom(room) {
+    let storageRef = firebase.storage().ref();
+    if (room.image) {
+      for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
+        let path = `/${this.folder}/${selectedFile.name}`;
+        let iRef = storageRef.child(path);
+        iRef.put(selectedFile).then((snapshot) => {
+          room.image = selectedFile.name;
+          room.path = path;
+          return this.rooms.push(room);
+        });
+      }
+    }
+    return this.rooms.push(room);
+  }
 }
 
 interface Room{

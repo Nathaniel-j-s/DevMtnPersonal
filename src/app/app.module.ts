@@ -33,7 +33,8 @@ const appRoutes: Routes = [
   {path:'', component:HomeComponent},
   {path:'rooms', component:RoomsComponent},
   {path:'room/:id', component:RoomComponent},
-  {path:'calendar', component:CalendarComponent}
+  {path:'calendar', component:CalendarComponent},
+  {path:'add-room', component:AddRoomComponent}
 ]
 
 @NgModule({
