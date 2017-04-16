@@ -5,15 +5,15 @@ import * as firebase from 'firebase';
 @Injectable()
 export class FirebaseService {
   rooms: FirebaseListObservable<any[]>;
-  room: FirebaseObjectObservable<any[]>;
+  room: FirebaseObjectObservable<any>;
   folder: any;
 
   constructor(private af: AngularFire) {
     this.folder = 'roomImages';
+    this.rooms = this.af.database.list('/rooms') as FirebaseListObservable<Room[]>;
    }
 
   getRooms() {
-    this.rooms = this.af.database.list('/rooms') as FirebaseListObservable<Room[]>
     return this.rooms;
   }
 
@@ -24,18 +24,23 @@ export class FirebaseService {
 
   addRoom(room) {
     let storageRef = firebase.storage().ref();
-    if (room.image) {
-      for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
-        let path = `/${this.folder}/${selectedFile.name}`;
-        let iRef = storageRef.child(path);
-        iRef.put(selectedFile).then((snapshot) => {
-          room.image = selectedFile.name;
-          room.path = path;
-          return this.rooms.push(room);
-        });
-      }
+    for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
+      let path = `/${this.folder}/${selectedFile.name}`;
+      let iRef = storageRef.child(path);
+      iRef.put(selectedFile).then((snapshot) => {
+        room.image = selectedFile.name;
+        room.path = path;
+        return this.rooms.push(room);
+      });
     }
-    return this.rooms.push(room);
+  }
+
+  updateRoom(id, room) {
+    return this.rooms.update(id, room);
+  }
+
+  deleteRoom(id) {
+    return this.rooms.remove(id);
   }
 }
 

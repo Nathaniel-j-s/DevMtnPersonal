@@ -3,7 +3,7 @@
   <h2 class="page-header">{{room.title}} <small>{{room.city}}</small></h2>
   <div class="row">
     <div class="col-md-4">
-      <!-- image -->
+      <img style="width:100%" class="thumbnail" src="{{imageUrl}}">
     </div>
     <div class="col-md-8">
       <ul class="list-group">
@@ -13,7 +13,7 @@
         <li class="list-group-item">Price: {{room.price}}</li>
       </ul>
     </div>
-    <a class="btn btn-default" href="#">Edit</a>
-    <a class="btn btn-danger" href="#">Delete</a>
+    <a class="btn btn-default" [routerLink]="['/edit-room/'+room.$key]">Edit</a>
+    <a class="btn btn-danger" (click)="onDeleteClick()">Delete</a>
   </div>
 </div>
