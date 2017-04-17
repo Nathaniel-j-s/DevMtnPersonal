@@ -7,10 +7,12 @@
     </div>
     <div class="col-md-8">
       <ul class="list-group">
-        <li class="list-group-item">Owner: {{room.owner}}</li>
-        <li class="list-group-item">Bedrooms: {{room.bedrooms}}</li>
-        <li class="list-group-item">Type: {{room.type}}</li>
+        <li class="list-group-item">Title: {{room.title}}</li>
         <li class="list-group-item">Price: {{room.price}}</li>
+        <li class="list-group-item">Beds: {{room.beds}}</li>
+        <li class="list-group-item">Max Occupants: {{room.occupants}}</li>
+        <li class="list-group-item">Smoking: {{room.smoking}}</li>
+        <li class="list-group-item">Pet Policy: {{room.pets}}</li>
       </ul>
     </div>
     <a class="btn btn-default" [routerLink]="['/edit-room/'+room.$key]">Edit</a>

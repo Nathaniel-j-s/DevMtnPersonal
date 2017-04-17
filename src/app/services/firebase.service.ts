@@ -7,6 +7,7 @@ export class FirebaseService {
   rooms: FirebaseListObservable<any[]>;
   room: FirebaseObjectObservable<any>;
   folder: any;
+  user: FirebaseObjectObservable<any>;
 
   constructor(private af: AngularFire) {
     this.folder = 'roomImages';

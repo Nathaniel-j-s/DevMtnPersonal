@@ -15,6 +15,7 @@ import { AddRoomComponent } from './components/add-room/add-room.component';
 import { RoomComponent } from './components/room/room.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { AccountComponent } from './components/account/account.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyAsJEPCKe9ls5f30s1aqf7u_RRTZR7Y8A8',
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
   {path:'room/:id', component:RoomComponent},
   {path:'calendar', component:CalendarComponent},
   {path:'add-room', component:AddRoomComponent},
-  {path:'edit-room/:id', component:EditRoomComponent}
+  {path:'edit-room/:id', component:EditRoomComponent},
+  {path:'account', component:AccountComponent}
 ]
 
 @NgModule({
@@ -47,7 +49,8 @@ const appRoutes: Routes = [
     AddRoomComponent,
     RoomComponent,
     NavbarComponent,
-    CalendarComponent
+    CalendarComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

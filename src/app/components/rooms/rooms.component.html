@@ -1,6 +1,14 @@
+<a [routerLink]="['/add-room']">Add Room</a>
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let room of rooms">
+  <li class="list-group-item room" *ngFor="let room of rooms">
     <a [routerLink]="['/room/'+room.$key]">{{room.title}}</a>
+    <ul class="list-group">
+      <li>Title: {{room.title}}</li>
+      <li>Price: {{room.price}}</li>
+      <li>Beds: {{room.beds}}</li>
+      <li>Max Occupants: {{room.occupants}}</li>
+      <li>Smoking: {{room.smoking}}</li>
+      <li>Pets: {{room.pets}}</li>
+    </ul>
   </li>
 </ul>
-<a [routerLink]="['/add-room']">Add Room</a>

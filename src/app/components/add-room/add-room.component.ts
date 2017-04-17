@@ -9,12 +9,12 @@ import {Router} from '@angular/router';
 })
 export class AddRoomComponent implements OnInit {
   title: any;
-  owner: any;
-  city: any;
-  bedrooms: any;
   price: any;
-  type: any;
-  image: any;
+  beds: any;
+  occupants: any;
+  smoking: any;
+  pets: any;
+  additional: any;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -27,11 +27,12 @@ export class AddRoomComponent implements OnInit {
   onAddSubmit(){
     let room =  {
       title: this.title,
-      city: this.city,
-      owner: this.owner,
-      bedrooms: this.bedrooms,
       price: this.price,
-      type: this.type
+      beds: this.beds,
+      occupants: this.occupants,
+      smoking: this.smoking,
+      pets: this.pets,
+      additional: this.additional
     }
     //debugger;
     this.firebaseService.addRoom(room);

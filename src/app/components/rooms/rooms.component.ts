@@ -13,7 +13,6 @@ export class RoomsComponent implements OnInit {
 
   ngOnInit() {
     this.firebaseService.getRooms().subscribe(rooms => {
-      console.log(rooms);
       this.rooms = rooms;
     })
   }

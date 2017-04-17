@@ -2,28 +2,42 @@
 <h2 class="page-header">Edit Room</h2>
 <form (submit)="onEditSubmit()">
   <div class="form-group">
-    <label>Title</label>
+    <label>Title (Name/Number)</label>
     <input class="form-control" type="text" [(ngModel)]="title" name="title">
   </div>
   <div class="form-group">
-    <label>City</label>
-    <input class="form-control" type="text" [(ngModel)]="city" name="city" required>
+    <label>Price</label>
+    <input class="form-control" type="text" [(ngModel)]="price" name="price" required>
   </div>
   <div class="form-group">
     <label>Owner</label>
     <input class="form-control" type="text" [(ngModel)]="owner" name="owner" required>
   </div>
   <div class="form-group">
-    <label>Bedrooms</label>
-    <input class="form-control" type="number" [(ngModel)]="bedrooms" name="bedrooms" required>
+    <label>Beds</label>
+    <input class="form-control" type="number" [(ngModel)]="beds" name="beds" required>
   </div>
   <div class="form-group">
-    <label>Type</label>
-    <select class="form-control" type="text" [(ngModel)]="type" name="type" required>
-      <option value="Estate">Estate</option>
-      <option value="Condo">Condo</option>
-      <option value="Apartment">Apartment</option>
+    <label>Max Occupants</label>
+    <input class="form-control" type="number" [(ngModel)]="occupants" name="occupants" required>
+  </div>
+  <div class="form-group">
+    <label>Smoking</label>
+    <select class="form-control" type="text" [(ngModel)]="smoking" name="smoking" required>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
     </select>
+  </div>
+  <div class="form-group">
+    <label>Pet Policy</label>
+    <select class="form-control" type="text" [(ngModel)]="pets" name="pets" required>
+      <option value="Allowed">Allowed</option>
+      <option value="Not Allowed">Not Allowed</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Additional Information</label>
+    <input class="form-control" type="text" [(ngModel)]="additional" name="additional">
   </div>
   <!-- <div class="form-group">
     <label>Image</label>
